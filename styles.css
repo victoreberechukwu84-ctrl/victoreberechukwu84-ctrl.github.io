@@ -17,7 +17,7 @@ body {
 }
 
 /* :root {
-    --primary: #ff704f;
+    --primary: white;
     --secondary: #ffbd69;
     --background: #080612;
     --light-bg: #10101c;
@@ -104,10 +104,10 @@ a {
 .page-title {
     height: 330px;
 
-    /* background:
+    background:
         linear-gradient(rgba(5, 4, 15, .88), rgba(5, 4, 15, .95)),
         url("https://images.unsplash.com/photo-1497366754035-f200968a6e72?w=1600")
-        center/cover; */
+        center/cover;
 
     display: flex;
     flex-direction: column;
@@ -148,8 +148,42 @@ a {
     grid-template-columns: 1fr 1fr;
     gap: 60px;
     align-items: center;
+    animation: appearing 5s ease-in-out;
+   
 }
-
+@keyframes appearing {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@keyframes rotate-in {
+    0% {
+        transform: rotate(-360deg);
+        opacity: 0;
+    }
+    100% {
+        transform: rotate(0deg);
+        opacity: 1;
+    }
+}
+@keyframes bounce-in {
+    0% {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+    60% {
+        transform: scale(1.2);
+        opacity: 1;
+    }
+    100% {
+        transform: scale(1);
+    }
+}
 .profile-image {
     width: 330px;
     height: 330px;
@@ -165,6 +199,8 @@ a {
     border-radius: 50%;
     border: 7px solid rgba(255, 68, 0, 0.63);
     position: relative;
+    animation: rotate-in 4s ease-in-out;
+    /* animation: fadeIn 1s ease-in-out; */
     /* z-index: 2; */
 }
 
@@ -361,6 +397,7 @@ a {
     height: 180px;
     position: relative;
     margin: 0 10px 10px;
+    animation: bounce-in 5s ease-in-out;
 }
 
 .service-image img {
@@ -368,6 +405,7 @@ a {
     height: 100%;
     object-fit: cover;
     border-radius: 10px;
+    
 }
 
 
@@ -381,6 +419,7 @@ a {
     text-align: center;
     margin-top: 30px;
 }
+
 
 
 
@@ -446,15 +485,20 @@ a {
 }
 
 .newsletter input {
-    background: transparent;
-    border: none;
-    outline: none;
+    /* background:transparent; */
+    border: 1px solid white;
+    /* outline: none; */
     padding: 12px;
-    color: white;
+    color: rgba(255, 68, 0, 0.671);
     width: 100%;
     font-family: inherit;
     font-size: 10px;
 }
+.newsletter input::placeholder{
+    color:  rgba(255, 68, 0, 0.932);
+}
+
+
 
 .newsletter button {
     border: none;
